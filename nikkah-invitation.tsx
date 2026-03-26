@@ -330,26 +330,19 @@ export default function Component() {
     <div className="relative fade-in min-h-screen bg-[#faf7f4]">
       
       {/* Left side floral PNG with vertical repeat */}
-      <div 
-        className="fixed left-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-left"
-        style={{
-          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "left top",
-          backgroundSize: "100% auto"
-        }}
+      <img 
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png"
+        alt=""
+        className="fixed left-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-left object-cover object-left"
+        style={{ objectPosition: "left top" }}
       />
       
       {/* Right side floral PNG (mirrored) with vertical repeat */}
-      <div 
-        className="fixed right-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-right"
-        style={{
-          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "right top",
-          backgroundSize: "100% auto",
-          transform: "scaleX(-1)"
-        }}
+      <img 
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png"
+        alt=""
+        className="fixed right-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-right object-cover object-right"
+        style={{ transform: "scaleX(-1)", objectPosition: "right top" }}
       />
 
       {/* Back Button */}
