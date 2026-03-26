@@ -338,14 +338,24 @@ export default function Component() {
       
       {/* Left side floral PNG with vertical repeat */}
       <div 
-        className="absolute left-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-left"
+        className="absolute left-0 top-0 bottom-0 w-32 md:w-40 pointer-events-none z-10 slide-in-left"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
           backgroundPosition: "left top",
+          backgroundSize: "100% auto"
+        }}
+      />
+      
+      {/* Right side floral PNG (mirrored) with vertical repeat */}
+      <div 
+        className="absolute right-0 top-0 bottom-0 w-32 md:w-40 pointer-events-none z-10 slide-in-right"
+        style={{
+          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "right top",
           backgroundSize: "100% auto",
-          maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)"
+          transform: "scaleX(-1)"
         }}
       />
       
