@@ -331,28 +331,28 @@ export default function Component() {
       
       {/* Left side floral PNG with vertical repeat */}
       <div 
-        className="fixed left-0 top-0 h-full w-20 md:w-28 pointer-events-none z-10 slide-in-left"
+        className="fixed left-0 top-0 h-full w-28 md:w-40 pointer-events-none z-0 slide-in-left"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
           backgroundPosition: "left top",
           backgroundSize: "100% auto",
-          maskImage: "linear-gradient(to right, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, black 60%, transparent 100%)"
+          maskImage: "linear-gradient(to right, black 0%, black 50%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, black 0%, black 50%, transparent 100%)"
         }}
       />
       
       {/* Right side floral PNG (mirrored) with vertical repeat */}
       <div 
-        className="fixed right-0 top-0 h-full w-20 md:w-28 pointer-events-none z-10 slide-in-right"
+        className="fixed right-0 top-0 h-full w-28 md:w-40 pointer-events-none z-0 slide-in-right"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
           backgroundPosition: "right top",
           backgroundSize: "100% auto",
           transform: "scaleX(-1)",
-          maskImage: "linear-gradient(to left, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to left, black 60%, transparent 100%)"
+          maskImage: "linear-gradient(to left, black 0%, black 50%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to left, black 0%, black 50%, transparent 100%)"
         }}
       />
 
