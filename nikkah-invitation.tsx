@@ -329,59 +329,19 @@ export default function Component() {
   return (
     <div className="relative fade-in" style={{ minHeight: "100vh" }}>
       
+      {/* Fixed Video Background - doesn't scroll */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="fixed inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pink%20Floral%20Wedding%20Invitation%20Video-z2XHHYp33rMLMPEKO8JvBwbfUp86h8.mp4" type="video/mp4" />
+      </video>
       
-      {/* Base background - stretches to full content height */}
-      <div 
-        className="absolute inset-0 bg-[#faf7f4]"
-        style={{ minHeight: "100%" }}
-      />
-      
-      {/* Left side floral PNG with vertical repeat */}
-      <div 
-        className="absolute left-0 top-0 bottom-0 w-32 md:w-40 pointer-events-none z-10 slide-in-left"
-        style={{
-          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "left top",
-          backgroundSize: "100% auto"
-        }}
-      />
-      
-      {/* Right side floral PNG (mirrored) with vertical repeat */}
-      <div 
-        className="absolute right-0 top-0 bottom-0 w-32 md:w-40 pointer-events-none z-10 slide-in-right"
-        style={{
-          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "right top",
-          backgroundSize: "100% auto",
-          transform: "scaleX(-1)"
-        }}
-      />
-      
-      {/* Right side floral PNG (mirrored) with vertical repeat */}
-      <div 
-        className="absolute right-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-right"
-        style={{
-          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "right top",
-          backgroundSize: "100% auto",
-          transform: "scaleX(-1)",
-          maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)"
-        }}
-      />
-      
-      {/* Center gradient overlay for text readability */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: `
-            linear-gradient(to right, transparent 0%, rgba(250,247,244,0.9) 15%, rgba(250,247,244,0.95) 50%, rgba(250,247,244,0.9) 85%, transparent 100%)
-          `
-        }}
-      />
+      {/* Light overlay for text readability */}
+      <div className="fixed inset-0 bg-white/30 z-0" />
 
       {/* Back Button */}
       <div className="fixed top-4 left-4 z-20">
@@ -404,6 +364,16 @@ export default function Component() {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-lg mx-auto px-6 py-12">
+        
+        {/* Floral Header PNG */}
+        <div className="flex justify-center mb-8 fade-in-scale">
+          <img 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/erasebg-transformed%20%2847%29-cLFmvwnLq60ku2h7ETk4QbY3YaB8qH.png"
+            alt="Floral decoration"
+            className="w-full max-w-md h-auto"
+            crossOrigin="anonymous"
+          />
+        </div>
         
         {/* Bismillah Section */}
         <div className="text-center space-y-3 mb-10 fade-in-up delay-100">
