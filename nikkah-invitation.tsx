@@ -336,34 +336,30 @@ export default function Component() {
         style={{ minHeight: "100%" }}
       />
       
-      {/* Left side floral PNG with seamless vertical repeat */}
+      {/* Left side floral PNG with vertical repeat */}
       <div 
-        className="absolute left-0 top-0 w-28 md:w-36 pointer-events-none z-0 slide-in-left"
+        className="absolute left-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-left"
         style={{
-          height: "100%",
-          minHeight: "100vh",
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
-          backgroundPosition: "left center",
-          backgroundSize: "100% 600px",
-          maskImage: "linear-gradient(to right, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, black 60%, transparent 100%)"
+          backgroundPosition: "left top",
+          backgroundSize: "100% auto",
+          maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)"
         }}
       />
       
-      {/* Right side floral PNG (mirrored) with seamless vertical repeat */}
+      {/* Right side floral PNG (mirrored) with vertical repeat */}
       <div 
-        className="absolute right-0 top-0 w-28 md:w-36 pointer-events-none z-0 slide-in-right"
+        className="absolute right-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-right"
         style={{
-          height: "100%",
-          minHeight: "100vh",
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
-          backgroundPosition: "right center",
-          backgroundSize: "100% 600px",
+          backgroundPosition: "right top",
+          backgroundSize: "100% auto",
           transform: "scaleX(-1)",
-          maskImage: "linear-gradient(to left, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to left, black 60%, transparent 100%)"
+          maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)"
         }}
       />
       
