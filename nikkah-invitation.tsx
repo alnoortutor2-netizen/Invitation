@@ -331,36 +331,24 @@ export default function Component() {
       
       {/* Left side floral PNG with vertical repeat */}
       <div 
-        className="fixed left-0 top-0 bottom-0 w-36 md:w-48 pointer-events-none z-0 slide-in-left"
+        className="fixed left-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-left"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
           backgroundPosition: "left top",
-          backgroundSize: "100% auto",
-          maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)"
+          backgroundSize: "100% auto"
         }}
       />
       
       {/* Right side floral PNG (mirrored) with vertical repeat */}
       <div 
-        className="fixed right-0 top-0 bottom-0 w-36 md:w-48 pointer-events-none z-0 slide-in-right"
+        className="fixed right-0 top-0 h-full w-36 md:w-48 pointer-events-none z-10 slide-in-right"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
           backgroundPosition: "right top",
           backgroundSize: "100% auto",
-          transform: "scaleX(-1)",
-          maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)"
-        }}
-      />
-      
-      {/* Center gradient overlay for text readability */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "linear-gradient(to right, transparent 0%, rgba(250,247,244,0.9) 20%, rgba(250,247,244,0.95) 50%, rgba(250,247,244,0.9) 80%, transparent 100%)"
+          transform: "scaleX(-1)"
         }}
       />
 
