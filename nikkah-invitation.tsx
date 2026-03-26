@@ -121,51 +121,61 @@ export default function Component() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
 
+  const audioStartedRef = useRef(false)
+
   const handleOpenInvitation = async () => {
     setCurrentPage("loading")
     setLoadingProgress(0)
+    audioStartedRef.current = false
+
+    // Start audio setup immediately
+    const setupAudio = async () => {
+      if (audioStartedRef.current || audioRef.current) return
+      audioStartedRef.current = true
+      
+      try {
+        const audioSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0627%282%29-fHKFYsFQhHNnJVWGHooruickURw9h3.MP3"
+        const audio = new Audio()
+        audio.crossOrigin = "anonymous"
+        audio.loop = true
+        audio.volume = 0.7
+        audio.preload = "auto"
+        audio.src = audioSrc
+        audioRef.current = audio
+
+        await new Promise((resolve, reject) => {
+          const timeout = setTimeout(() => reject(new Error("Audio loading timeout")), 10000)
+          audio.addEventListener("canplaythrough", () => { clearTimeout(timeout); resolve(true) }, { once: true })
+          audio.addEventListener("error", () => { clearTimeout(timeout); reject(new Error("Audio loading failed")) }, { once: true })
+          audio.load()
+        })
+
+        const playPromise = audio.play()
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            const playOnInteraction = () => {
+              if (audioRef.current) {
+                audioRef.current.play().then(() => {
+                  document.removeEventListener("click", playOnInteraction)
+                  document.removeEventListener("touchstart", playOnInteraction)
+                }).catch(() => {})
+              }
+            }
+            document.addEventListener("click", playOnInteraction, { once: true })
+            document.addEventListener("touchstart", playOnInteraction, { once: true })
+          })
+        }
+      } catch (error) {
+        console.error("Audio setup failed:", error)
+      }
+    }
+
+    // Start audio after a short delay
+    setTimeout(setupAudio, 1500)
 
     const progressInterval = setInterval(() => {
       setLoadingProgress((prev) => {
         const newProgress = prev + 2
-
-        if (newProgress >= 50 && prev < 50) {
-          ;(async () => {
-            try {
-              const audioSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0627%282%29-fHKFYsFQhHNnJVWGHooruickURw9h3.MP3"
-              const audio = new Audio()
-              audio.crossOrigin = "anonymous"
-              audio.loop = true
-              audio.volume = 0.7
-              audio.preload = "auto"
-              audioRef.current = audio
-              audio.src = audioSrc
-
-              await new Promise((resolve, reject) => {
-                const timeout = setTimeout(() => reject(new Error("Audio loading timeout")), 10000)
-                audio.addEventListener("canplaythrough", () => { clearTimeout(timeout); resolve(true) }, { once: true })
-                audio.addEventListener("error", () => { clearTimeout(timeout); reject(new Error("Audio loading failed")) }, { once: true })
-                audio.load()
-              })
-
-              const playPromise = audio.play()
-              if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                  const playOnInteraction = () => {
-                    audio.play().then(() => {
-                      document.removeEventListener("click", playOnInteraction)
-                      document.removeEventListener("touchstart", playOnInteraction)
-                    }).catch(() => {})
-                  }
-                  document.addEventListener("click", playOnInteraction, { once: true })
-                  document.addEventListener("touchstart", playOnInteraction, { once: true })
-                })
-              }
-            } catch (error) {
-              console.error("Audio setup failed:", error)
-            }
-          })()
-        }
 
         if (newProgress >= 100) {
           clearInterval(progressInterval)
@@ -317,38 +327,43 @@ export default function Component() {
 
   // ─── Main Invitation Page ─────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen relative fade-in">
+    <div className="relative fade-in" style={{ minHeight: "100vh" }}>
       
       
-      {/* Base background */}
+      {/* Base background - stretches to full content height */}
       <div 
         className="absolute inset-0 bg-[#faf7f4]"
+        style={{ minHeight: "100%" }}
       />
       
-      {/* Left side floral PNG with vertical repeat */}
+      {/* Left side floral PNG with seamless vertical repeat */}
       <div 
-        className="absolute left-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-left"
+        className="absolute left-0 top-0 w-28 md:w-36 pointer-events-none z-0 slide-in-left"
         style={{
+          height: "100%",
+          minHeight: "100vh",
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
-          backgroundPosition: "left top",
-          backgroundSize: "100% auto",
-          maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)"
+          backgroundPosition: "left center",
+          backgroundSize: "100% 600px",
+          maskImage: "linear-gradient(to right, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, black 60%, transparent 100%)"
         }}
       />
       
-      {/* Right side floral PNG (mirrored) with vertical repeat */}
+      {/* Right side floral PNG (mirrored) with seamless vertical repeat */}
       <div 
-        className="absolute right-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-right"
+        className="absolute right-0 top-0 w-28 md:w-36 pointer-events-none z-0 slide-in-right"
         style={{
+          height: "100%",
+          minHeight: "100vh",
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
-          backgroundPosition: "right top",
-          backgroundSize: "100% auto",
+          backgroundPosition: "right center",
+          backgroundSize: "100% 600px",
           transform: "scaleX(-1)",
-          maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)"
+          maskImage: "linear-gradient(to left, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to left, black 60%, transparent 100%)"
         }}
       />
       
