@@ -331,7 +331,7 @@ export default function Component() {
       
       {/* Left side floral PNG with vertical repeat */}
       <div 
-        className="fixed left-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-left"
+        className="fixed left-0 top-0 bottom-0 w-36 md:w-48 pointer-events-none z-0 slide-in-left"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
@@ -344,7 +344,7 @@ export default function Component() {
       
       {/* Right side floral PNG (mirrored) with vertical repeat */}
       <div 
-        className="fixed right-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-right"
+        className="fixed right-0 top-0 bottom-0 w-36 md:w-48 pointer-events-none z-0 slide-in-right"
         style={{
           backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
           backgroundRepeat: "repeat-y",
@@ -360,7 +360,7 @@ export default function Component() {
       <div 
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: "linear-gradient(to right, transparent 0%, rgba(250,247,244,0.9) 15%, rgba(250,247,244,0.95) 50%, rgba(250,247,244,0.9) 85%, transparent 100%)"
+          background: "linear-gradient(to right, transparent 0%, rgba(250,247,244,0.9) 20%, rgba(250,247,244,0.95) 50%, rgba(250,247,244,0.9) 80%, transparent 100%)"
         }}
       />
 
