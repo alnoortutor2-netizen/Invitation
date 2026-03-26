@@ -317,46 +317,47 @@ export default function Component() {
 
   // ─── Main Invitation Page ─────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen relative overflow-hidden fade-in">
+    <div className="min-h-screen relative fade-in">
       
       
       {/* Base background */}
       <div 
-        className="fixed inset-0 bg-white"
+        className="absolute inset-0 bg-[#faf7f4]"
       />
       
-      {/* Left side floral PNG with gradient blend */}
-      <div className="fixed left-0 top-0 bottom-0 w-2/5 md:w-1/3 pointer-events-none z-0 slide-in-left">
-        <img 
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png"
-          alt=""
-          className="h-full w-full object-contain object-left"
-          style={{
-            maskImage: "linear-gradient(to right, black 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, black 60%, transparent 100%)"
-          }}
-        />
-      </div>
+      {/* Left side floral PNG with vertical repeat */}
+      <div 
+        className="absolute left-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-left"
+        style={{
+          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "left top",
+          backgroundSize: "100% auto",
+          maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)"
+        }}
+      />
       
-      {/* Right side floral PNG (mirrored) with gradient blend */}
-      <div className="fixed right-0 top-0 bottom-0 w-2/5 md:w-1/3 pointer-events-none z-0 slide-in-right">
-        <img 
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png"
-          alt=""
-          className="h-full w-full object-contain object-right scale-x-[-1]"
-          style={{
-            maskImage: "linear-gradient(to left, black 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to left, black 60%, transparent 100%)"
-          }}
-        />
-      </div>
+      {/* Right side floral PNG (mirrored) with vertical repeat */}
+      <div 
+        className="absolute right-0 top-0 bottom-0 w-24 md:w-32 pointer-events-none z-0 slide-in-right"
+        style={{
+          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Purple%20And%20White%20Floral%20Wedding%20Invitation%20%281%29-YoDbOHHNQ9niuMQc5CIl0LK7HUm8e7.png')",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "right top",
+          backgroundSize: "100% auto",
+          transform: "scaleX(-1)",
+          maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)"
+        }}
+      />
       
       {/* Center gradient overlay for text readability */}
       <div 
-        className="fixed inset-0 pointer-events-none z-0"
+        className="absolute inset-0 pointer-events-none z-0"
         style={{
           background: `
-            radial-gradient(ellipse at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, transparent 80%)
+            linear-gradient(to right, transparent 0%, rgba(250,247,244,0.9) 15%, rgba(250,247,244,0.95) 50%, rgba(250,247,244,0.9) 85%, transparent 100%)
           `
         }}
       />
@@ -383,97 +384,185 @@ export default function Component() {
       {/* Main Content */}
       <div className="relative z-10 max-w-lg mx-auto px-6 py-12">
         
-        {/* Header Section */}
-        <div className="text-center space-y-6 mb-12 fade-in-up delay-100">
+        {/* Bismillah Section */}
+        <div className="text-center space-y-3 mb-10 fade-in-up delay-100">
           <p 
-            className="text-[#6b4a3c] text-sm tracking-[0.3em] uppercase font-medium"
+            className="text-[#5a3d32] text-2xl leading-relaxed"
+            style={{ fontFamily: "Amiri, serif" }}
+          >
+            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+          </p>
+          <p 
+            className="text-[#6b4a3c] text-sm tracking-wider italic"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Bismillahir Rahmanir Raheem
+            In the name of Allah, the Most Gracious, the Most Merciful
           </p>
-          
-          <div className="space-y-1">
+        </div>
+
+        {/* Nikkah Mubarak Title */}
+        <div className="text-center mb-10 fade-in-scale delay-200">
+          <h1
+            className="text-5xl md:text-6xl text-[#4a3228] font-normal"
+            style={{ fontFamily: "Great Vibes, cursive" }}
+          >
+            Nikkah Mubarak
+          </h1>
+        </div>
+
+        {/* Greeting */}
+        <div className="text-center mb-10 fade-in-up delay-300">
+          <p 
+            className="text-[#5a3d32] text-base tracking-wide italic"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Assalamualaikum Warahmatullahi Wabarakatuh
+          </p>
+        </div>
+
+        {/* Parents Section */}
+        <div className="text-center space-y-4 mb-10 fade-in-up delay-400">
+          <p 
+            className="text-[#5a3d32] text-base font-medium tracking-wide"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Mr. & Mrs. Syed Imran Hussain
+          </p>
+          <p 
+            className="text-[#6b4a3c] text-lg"
+            style={{ fontFamily: "Great Vibes, cursive" }}
+          >
+            and
+          </p>
+          <p 
+            className="text-[#5a3d32] text-base font-medium tracking-wide"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Mr. & Mrs. Muhammad Amin
+          </p>
+        </div>
+
+        {/* Request text */}
+        <div className="text-center mb-10 fade-in-up delay-500">
+          <p 
+            className="text-[#6b4a3c] text-sm tracking-wider leading-relaxed"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            request the pleasure of your company at the Nikkah ceremony of their beloved children
+          </p>
+        </div>
+
+        {/* Names Section */}
+        <div className="text-center space-y-6 mb-10">
+          <div className="fade-in-up delay-500">
+            <h2
+              className="text-5xl md:text-6xl text-[#4a3228] font-normal leading-tight"
+              style={{ fontFamily: "Great Vibes, cursive" }}
+            >
+              Syed Usman Hussain
+            </h2>
             <p 
-              className="text-[#5a3d32] text-lg tracking-widest"
+              className="text-[#6b4a3c] text-sm tracking-wider mt-2 italic"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
-              The Nikkah Ceremony Of
+              Son of Syed Imran Hussain
+            </p>
+          </div>
+          
+          <p 
+            className="text-3xl text-[#6b4a3c] fade-in-scale delay-600"
+            style={{ fontFamily: "Great Vibes, cursive" }}
+          >
+            with
+          </p>
+          
+          <div className="fade-in-up delay-600">
+            <h2
+              className="text-5xl md:text-6xl text-[#4a3228] font-normal leading-tight"
+              style={{ fontFamily: "Great Vibes, cursive" }}
+            >
+              Shafaq Amin
+            </h2>
+            <p 
+              className="text-[#6b4a3c] text-sm tracking-wider mt-2 italic"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              Daughter of Muhammad Amin
             </p>
           </div>
         </div>
 
-        {/* Names Section */}
-        <div className="text-center space-y-4 mb-12">
-          <h1
-            className="text-6xl md:text-7xl text-[#4a3228] font-normal leading-tight fade-in-up delay-200"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
-            Syed Usman
-          </h1>
-          <p 
-            className="text-4xl text-[#6b4a3c] fade-in-scale delay-300"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
-            &
-          </p>
-          <h1
-            className="text-6xl md:text-7xl text-[#4a3228] font-normal leading-tight fade-in-up delay-400"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
-            Shafaq
-          </h1>
+        {/* Decorative Divider */}
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#d4a5a5]" />
+          <div className="w-2 h-2 rounded-full bg-[#d4a5a5]" />
+          <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#d4a5a5]" />
         </div>
 
-        {/* Date Section - Reference Style Layout */}
-        <div className="text-center space-y-6 mb-12 fade-in-up delay-500">
+        {/* Seeking Blessings text */}
+        <div className="text-center mb-8 fade-in-up delay-600">
           <p 
-            className="text-[#6b4a3c] text-sm tracking-[0.4em] uppercase font-medium"
+            className="text-[#6b4a3c] text-sm tracking-wider leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            April
+            By seeking the grace and blessings of Allah Subhanahu Wa Ta&apos;ala, we are honored to hold the following event:
           </p>
-          
+        </div>
+
+        {/* Event Title */}
+        <div className="text-center mb-8 fade-in-scale delay-700">
+          <p 
+            className="text-[#5a3d32] text-lg tracking-[0.3em] uppercase font-medium"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Nikkah Ceremony
+          </p>
+        </div>
+
+        {/* Date Section */}
+        <div className="text-center space-y-4 mb-10 fade-in-up delay-700">
           <div className="flex items-center justify-center gap-4">
-            <div className="w-20 h-px bg-[#b8928a]" />
+            <div className="w-16 h-px bg-[#b8928a]" />
             <span 
-              className="text-[#5a3d32] text-sm tracking-[0.2em] uppercase font-medium"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            >
-              Friday
-            </span>
-            <span 
-              className="text-6xl text-[#5a3d32] font-light"
+              className="text-5xl text-[#5a3d32] font-light"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               3
             </span>
-            <span 
-              className="text-[#5a3d32] text-sm tracking-[0.2em] uppercase font-medium"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            >
-              Baad Namaz e Asr
-            </span>
-            <div className="w-20 h-px bg-[#b8928a]" />
+            <div className="w-16 h-px bg-[#b8928a]" />
           </div>
           
           <p 
-            className="text-[#6b4a3c] text-sm tracking-[0.4em] uppercase font-medium"
+            className="text-[#5a3d32] text-base tracking-widest uppercase font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            2026
+            Friday, April 2026
+          </p>
+          
+          <p 
+            className="text-[#6b4a3c] text-sm tracking-wider font-medium"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Baad Namaz-e-Asr
           </p>
         </div>
 
         {/* Venue Section */}
-        <div className="text-center space-y-4 mb-12 fade-in-up delay-600">
+        <div className="text-center space-y-3 mb-10 fade-in-up delay-700">
           <p 
-            className="text-[#5a3d32] text-base tracking-[0.2em] uppercase font-medium"
+            className="text-[#6b4a3c] text-sm tracking-[0.2em] uppercase font-medium"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Venue
+          </p>
+          <p 
+            className="text-[#5a3d32] text-lg tracking-wider font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Quran Academy
           </p>
           <p 
-            className="text-[#6b4a3c] text-sm tracking-wider font-medium"
+            className="text-[#6b4a3c] text-sm tracking-wider"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Yaseenabad Branch
@@ -490,36 +579,38 @@ export default function Component() {
         </div>
 
         {/* Decorative Divider */}
-        <div className="flex items-center justify-center gap-4 mb-12">
+        <div className="flex items-center justify-center gap-4 mb-10">
           <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#d4a5a5]" />
           <div className="w-2 h-2 rounded-full bg-[#d4a5a5]" />
           <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#d4a5a5]" />
         </div>
 
-        {/* Parents Section */}
-        <div className="text-center space-y-6 mb-12 px-4">
+        {/* Islamic Quote */}
+        <div className="text-center space-y-4 mb-10 px-4 py-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-[#d4a5a5]/20 fade-in-up delay-700">
           <p 
-            className="text-[#5a3d32] text-sm tracking-wider italic"
+            className="text-[#5a3d32] text-sm tracking-wider font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Son of Mr. & Mrs. Syed Imran Hussain
+            Allah Tabarak wa Ta&apos;ala says:
           </p>
           <p 
-            className="text-[#6b4a3c] text-xl"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
-            together with
-          </p>
-          <p 
-            className="text-[#5a3d32] text-sm tracking-wider italic"
+            className="text-[#4a3228] text-base leading-relaxed italic"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Daughter of Mr. & Mrs. Muhammad Amin
+            &quot;And among His signs is that He created for you mates from among yourselves, 
+            that you may dwell in tranquility with them, and He placed between you 
+            affection and mercy. Indeed, in that are signs for a people who give thought.&quot;
+          </p>
+          <p 
+            className="text-[#5a3d32] text-xs tracking-[0.2em] uppercase font-medium"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            — Surah Ar-Rum (30:21)
           </p>
         </div>
 
         {/* Countdown Section */}
-        <div className="text-center space-y-6 mb-12">
+        <div className="text-center space-y-6 mb-10">
           <p 
             className="text-3xl text-[#5a3d32]"
             style={{ fontFamily: "Great Vibes, cursive" }}
@@ -560,32 +651,8 @@ export default function Component() {
           </Button>
         </div>
 
-        {/* Islamic Quote */}
-        <div className="text-center space-y-4 mb-12 px-4 py-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-[#d4a5a5]/20">
-          <p 
-            className="text-[#5a3d32] text-sm tracking-wider font-medium"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
-          >
-            Allah Subhanahu Wa Ta'ala says:
-          </p>
-          <p 
-            className="text-[#4a3228] text-base leading-relaxed italic"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
-          >
-            "And among His signs is that He created for you mates from among yourselves, 
-            that you may dwell in tranquility with them, and He placed between you 
-            affection and mercy."
-          </p>
-          <p 
-            className="text-[#5a3d32] text-xs tracking-[0.2em] uppercase font-medium"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
-          >
-            — Surah Ar-Rum (30:21)
-          </p>
-        </div>
-
         {/* RSVP Section */}
-        <div className="text-center space-y-6 mb-12">
+        <div className="text-center space-y-6 mb-10">
           <p 
             className="text-3xl text-[#5a3d32]"
             style={{ fontFamily: "Great Vibes, cursive" }}
@@ -615,7 +682,7 @@ export default function Component() {
         {/* Footer */}
         <div className="text-center space-y-6 pb-8">
           <p 
-            className="text-[#5a3d32] text-sm tracking-wider italic"
+            className="text-[#5a3d32] text-base tracking-wider italic"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Your presence will add joy to our special day
