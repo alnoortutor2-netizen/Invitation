@@ -370,10 +370,10 @@ export default function Component() {
         {/* Bismillah Section */}
         <div className="text-center space-y-3 mb-10 fade-in-up delay-100">
           <p 
-            className="text-[#5a3d32] text-2xl leading-relaxed"
-            style={{ fontFamily: "Amiri, serif" }}
+            className="text-[#5a3d32] text-3xl leading-relaxed"
+            style={{ fontFamily: "Amiri, serif", direction: "rtl" }}
           >
-            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+            بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
           </p>
           <p 
             className="text-[#6b4a3c] text-sm tracking-wider italic"
